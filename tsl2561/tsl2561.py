@@ -109,7 +109,7 @@ class TSL2561(object):
         self.enable()
 
         # Wait x ms for ADC to complete
-        #TSL2561.delay(self.delay_time)
+        TSL2561.delay(self.delay_time)
 
         # Reads a two byte value from channel 0 (visible + infrared)
         broadband = self.i2c.readU16(TSL2561_COMMAND_BIT | TSL2561_WORD_BIT |
