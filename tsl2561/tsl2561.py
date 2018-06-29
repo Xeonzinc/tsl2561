@@ -82,7 +82,7 @@ class TSL2561(object):
         self.set_gain(self.gain)
 
         # Note: by default, the device is in power down mode on bootup
-        #self.disable()
+        self.disable()
 
     def enable(self):
         '''Enable the device by setting the control bit to 0x03'''
@@ -106,7 +106,7 @@ class TSL2561(object):
         '''Private function to read luminosity on both channels'''
 
         # Enable the device by setting the control bit to 0x03
-        #self.enable()
+        self.enable()
 
         # Wait x ms for ADC to complete
         #TSL2561.delay(self.delay_time)
@@ -120,7 +120,7 @@ class TSL2561(object):
                               TSL2561_REGISTER_CHAN1_LOW)
 
         # Turn the device off to save power
-        #self.disable()
+        self.disable()
 
         return (broadband, ir)
 
@@ -128,7 +128,7 @@ class TSL2561(object):
         '''Sets the integration time for the TSL2561'''
 
         # Enable the device by setting the control bit to 0x03
-        #self.enable()
+        self.enable()
 
         self.integration_time = integration_time
 
@@ -137,14 +137,14 @@ class TSL2561(object):
                         self.integration_time | self.gain)
 
         # Turn the device off to save power
-        #self.disable()
+        self.disable()
 
     def set_gain(self, gain):
         '''Adjusts the gain on the TSL2561 (adjusts the sensitivity to light)
         '''
 
         # Enable the device by setting the control bit to 0x03
-        #self.enable()
+        self.enable()
 
         self.gain = gain
 
@@ -153,7 +153,7 @@ class TSL2561(object):
                         self.integration_time | self.gain)
 
         # Turn the device off to save power
-        #self.disable()
+        self.disable()
 
     def set_auto_range(self, value):
         '''Enables or disables the auto-gain settings when reading
